@@ -5,6 +5,8 @@ import java.math.BigInteger;
 public class NumberReducer {
     String numberCounter = "";
     BigInteger num;
+
+    String reducedNumber = "";
     NumberReducer(BigInteger input){
         num = input;
         try{
@@ -15,17 +17,20 @@ public class NumberReducer {
         }
     }
 
-    String getReducedNumber(){
+    private String makeReducedNumber(){
         String reducedNumber = "";
         switch(numberCounter.length()){
             case 1,2,3:
-                reducedNumber = numberCounter + "k";
+                reducedNumber = numberCounter.substring(0,1)+","+numberCounter.substring(1,2)+ "k";
                 break;
             case 4,5,6:
-                reducedNumber = numberCounter.substring(0,2) + "m";
+                reducedNumber = numberCounter.charAt(0)+","+numberCounter.substring(1,2) + "k";
                 break;
             case 7,8,9:
-                reducedNumber = numberCounter.substring(0,2) + "b";
+                reducedNumber = numberCounter.substring(0,1)+","+numberCounter.substring(1,2) + "m";
+                break;
+            case 10,11,12:
+                reducedNumber = numberCounter.substring(0,1)+","+numberCounter.substring(1,2) + "b";
                 break;
             default:
                 reducedNumber = numberCounter;
@@ -34,6 +39,20 @@ public class NumberReducer {
         }
 
         return reducedNumber;
+    }
+
+    public void printNumber(){
+        reducedNumber=makeReducedNumber();
+        System.out.println(reducedNumber);
+    }
+
+    public String getNumber(){
+        reducedNumber=makeReducedNumber();
+        if(reducedNumber !=""){
+            return reducedNumber;
+        }else{
+            return "Invalid";
+        }
     }
 }
 /*
