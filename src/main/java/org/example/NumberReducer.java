@@ -21,16 +21,16 @@ public class NumberReducer {
         String reducedNumber = "";
         switch(numberCounter.length()){
             case 1,2,3:
-                reducedNumber = numberCounter.substring(0,1)+","+numberCounter.substring(1,2)+ "k";
+                reducedNumber = numberCounter.toString();
                 break;
             case 4,5,6:
-                reducedNumber = numberCounter.charAt(0)+","+numberCounter.substring(1,2) + "k";
+                reducedNumber = numberCounter.substring(0, numberCounter.length() - 3)+ "k";
                 break;
             case 7,8,9:
-                reducedNumber = numberCounter.substring(0,1)+","+numberCounter.substring(1,2) + "m";
+                reducedNumber = numberCounter.substring(0, numberCounter.length() - 6)+ "m";
                 break;
             case 10,11,12:
-                reducedNumber = numberCounter.substring(0,1)+","+numberCounter.substring(1,2) + "b";
+                reducedNumber = numberCounter.substring(0, numberCounter.length() - 9) + "b";
                 break;
             default:
                 reducedNumber = numberCounter;

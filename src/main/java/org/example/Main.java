@@ -15,5 +15,14 @@ public class Main {
         BigInteger numToConvert = new BigInteger(inputNum);
         NumberReducer reducerObj = new NumberReducer(numToConvert);
         reducerObj.printNumber();
+
+        //tests
+        BigInteger thousandVal = new BigInteger("200000");
+        BigInteger millionVal = new BigInteger("300000000");
+        BigInteger billionVal = new BigInteger("200000000000");
+
+        NumberReducer reducerObj2 = new NumberReducer(billionVal);
+        reducerObj2.printNumber();
+
     }
 }
